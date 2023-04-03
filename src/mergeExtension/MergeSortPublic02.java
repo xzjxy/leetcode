@@ -1,24 +1,24 @@
-package MergeDemo01;
+package mergeExtension;
 
 import java.util.Arrays;
 
-public class MergeDemo {
-    public static void main(String[] args) {
-        int[] arr6 = {23, 40, 50, 41, 80, 90};
-        mergeSort(arr6);
-        System.out.println(Arrays.toString(arr6));
-
-    }
+public class MergeSortPublic02 {
+//    public static void main(String[] args) {
+//        int[] arr6 = {23, 40, 50, 41, 80, 90};
+//        mergeSort(arr6);
+//        System.out.println(Arrays.toString(arr6));
+//
+//    }
 
     /**
      * 官方归并排序算法：时间复杂度根据master公式，（时间复杂度  O(nlog(n)),  空间复杂度 O(n)）
      * @param arr
      */
-    private static void mergeSort(int[] arr) {
+    public static void mergeSort(int[] arr) {
         process(arr, 0, arr.length - 1);
     }
 
-    private static void process(int[] arr, int L, int R) {
+    public static void process(int[] arr, int L, int R) {
         if (L == R) {
             return;
         }

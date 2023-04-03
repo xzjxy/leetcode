@@ -1,16 +1,14 @@
-package mergeExtension;
+package insertSort;
 
 import java.util.Arrays;
 
 public class InsertSort {
-    public InsertSort() {
-    }
     /**
      * 插入排序：扑克牌思路， 先满足 0-1 有序， 然后是 0-2  .... 一直到 0-n 有序
      * 时间复杂度 O(n^2)   空间复杂度  O(1)
      * 插入排序在时间复杂度在 O(1) 到 O(n^2) 之间，某些清空下表现由于 选择排序 和 冒牌排序，选择排序与冒泡排序严格的O(n^2)
      */
-    public  static int[] insertionSort(int[] arr) {
+    public  static int[] insertSort01(int[] arr) {
         if (arr == null || arr.length < 2) {
             System.out.println(Arrays.toString(arr));
         }

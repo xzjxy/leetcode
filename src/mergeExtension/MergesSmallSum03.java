@@ -1,20 +1,18 @@
-package MergeDemo01;
+package mergeExtension;
 
-public class MergesExtension01 {
+public class MergesSmallSum03 {
     /**
      1 小和问题：每个数组左边比当前数小的数累加起来，叫做数组的小和，计算数组的小和
      每次左边与右边交换，以为右边往后所有数比左边该数大
-     */
-
-    /**
-     * 2 逆序对问题：在一个数组中，左边数比右边大，两个数构成一个逆序对，打印所有逆序
      */
     public static int smallSum = 0;
 
     public static void main(String[] args) {
         int[] arr = {1, 3, 4, 2, 5};
+        int[] arr1 = {1, 2, 1, 2};
 //        mergeSort(arr);
         System.out.println(smallSum(arr));
+        System.out.println(smallSum(arr1));
     }
 
     private static int smallSum(int[] arr) {
@@ -38,14 +36,8 @@ public class MergesExtension01 {
         int a = l;
         int b = mid + 1;
         while (a <= mid && b <= r) {
-//            if (arr[a] <= arr[b]) {
-//                tmpSum += arr[a] * (r - b + 1);
-//                tmp[i++] = arr[a++];
-//            } else {
-//                tmp[i++] = arr[b++];
-//            }
-            tmpSum += arr[a] <= arr[b] ? arr[a] * (r - b + 1) : 0;
-            tmp[i++] = arr[a] <= arr[b] ? arr[a++] : arr[b++];
+            tmpSum += arr[a] < arr[b] ? arr[a] * (r - b + 1) : 0; // 注意：相等时必须左边先进栈
+            tmp[i++] = arr[a] < arr[b] ? arr[a++] : arr[b++];
         }
         while (a <= mid) {
             tmp[i++] = arr[a++];

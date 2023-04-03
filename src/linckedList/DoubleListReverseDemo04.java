@@ -1,6 +1,6 @@
 package linckedList;
 
-public class DoubleListReverseDemo03 {
+public class DoubleListReverseDemo04 {
     public static void main(String[] args) {
         DoubleNode<String> n1 = new DoubleNode<>();
         DoubleNode<String> n2 = new DoubleNode<>();

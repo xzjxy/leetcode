@@ -1,8 +1,6 @@
 package linckedList;
 
-import java.util.LinkedList;
-
-public class LinkedListDemo01 {
+public class SingleListReverseDemo01 {
     /**
      * 单链表及双链表相关题目: 只需要头部节点 head，就可以找到剩下的所有节点
      * 基本数据类型是值拷贝传递，方法内调用不改变原始值，对象类型是地址转递，方法（循环）操作后会改变结果
@@ -10,15 +8,15 @@ public class LinkedListDemo01 {
      * 双链表 Class Node<V>{V value; Node next；Node last;}
      */
     public static void main(String[] args) {
-        SingleNode<String> node1 = new SingleNode<>();
-        SingleNode<String> node2 = new SingleNode<>();
-        SingleNode<String> node3 = new SingleNode<>();
-        SingleNode<String> node4 = new SingleNode<>();
-        SingleNode<String> node5 = new SingleNode<>();
-        node4 = new SingleNode<>("D", null);
-        node3 = new SingleNode<>("C", node4);
-        node2 = new SingleNode<>("B", node3);
-        node1 = new SingleNode<>("A", node2);
+        SingleNode node1 = new SingleNode();
+        SingleNode node2 = new SingleNode();
+        SingleNode node3 = new SingleNode();
+        SingleNode node4 = new SingleNode();
+        SingleNode node5 = new SingleNode();
+        node4 = new SingleNode(4, null);
+        node3 = new SingleNode(3, node4);
+        node2 = new SingleNode(2, node3);
+        node1 = new SingleNode(1, node2);
         //打印当前单链表
 //        printList(node1);
 //        System.out.println(node5);
@@ -47,7 +45,7 @@ public class LinkedListDemo01 {
     /**
      * 打印列表
      */
-    private static void printList(SingleNode<String> head) {
+    private static void printList(SingleNode head) {
         SingleNode tmp = head;
         while (tmp.next != null) {
             System.out.print(tmp.value + "-->");
@@ -61,7 +59,7 @@ public class LinkedListDemo01 {
      * 指针是单向无尾的（->），Java指向同一个变量的指针是一个指针
      * 1 非递归写法（单链表）
      */
-    public static SingleNode reverseList01(SingleNode<String> head) {
+    public static SingleNode reverseList01(SingleNode head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -80,7 +78,7 @@ public class LinkedListDemo01 {
      * 单链表反转， 双指针           A   ->   B   ->  C  ->  D  ->  null
      * pre  cur/head    tmp
      */
-    public static SingleNode reverseList02(SingleNode<String> head) {
+    public static SingleNode reverseList02(SingleNode head) {
         SingleNode pre = null;
         while (head != null) {
             SingleNode tmp = head.next; // next 指向当前变量的下一个元素
@@ -92,15 +90,15 @@ public class LinkedListDemo01 {
     }
 
     /**
-     * 3.1 递归写法（单链表） 双参数传递
+     * 3.1 递归写法（单链表） 双参数传递   仿照上一个写法
      */
-    public static SingleNode reverseList03(SingleNode<String> head) {
+    public static SingleNode reverseList03(SingleNode head) {
         return recursive(head, null);
     }
 
-    private static SingleNode recursive(SingleNode<String> cur, SingleNode pre) {
-        if (cur == null) {
-            return pre;
+    private static SingleNode recursive(SingleNode cur, SingleNode pre) {
+        if (cur == null) {   // 终止条件  当前节点 走到 空节点
+            return pre;     // 返回上一个 尾节点
         }
         SingleNode next = cur.next;
         cur.next = pre;
@@ -110,7 +108,7 @@ public class LinkedListDemo01 {
     /**
      * 3.2 递归写法（单链表） 单参数传递
      */
-    public static SingleNode reverseList04(SingleNode<String> head) {
+    public static SingleNode reverseList04(SingleNode head) {
         if (head == null || head.next == null) {
             return head;
         }

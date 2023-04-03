@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class XorDemo1 {
+public class XorDemo01 {
     /**
      * （一） 异或性质：无进位相加                                十进制       二进制（原码）     反码             补码
      * 1 任何数字异或 0 得到本身  N ^ N = 0                                 6         0000 0110      0000 0110      0000 0110
@@ -20,12 +20,7 @@ public class XorDemo1 {
         arr[a] = arr[a] ^ arr[b];
     }
 
-    public static void swap02(int arr[], int a, int b) {
-        int tmp;
-        tmp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = tmp;
-    }
+
 
     /**
      * 异或相关题目：

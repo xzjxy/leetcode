@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package mergeExtension;
 
 public class MyMergeSort {
 //    public static void main(String[] args) {
@@ -8,10 +8,7 @@ public class MyMergeSort {
 //        System.out.println(Arrays.toString(mergerSort(arr)));
 //    }
 
-    public MyMergeSort() {
-    }
-
-    public  int[] mergerSort(int[] arr) {
+    public static int[] mergerSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return arr;
         }
@@ -26,7 +23,7 @@ public class MyMergeSort {
         return merge(larr, rarr);
     }
 
-    public int[] copyArray(int[] arr) {
+    public static int[] copyArray(int[] arr) {
         if(arr == null){
             return null;
         }

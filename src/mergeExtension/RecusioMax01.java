@@ -1,11 +1,10 @@
-package MergeDemo01;
+package mergeExtension;
 
 import org.junit.Test;
 
-import java.util.Map;
 import java.util.Random;
 
-public class RecusionDemo04 {
+public class RecusioMax01 {
     @Test
     public void test01() {
         Random r = new Random();
