@@ -56,32 +56,35 @@ public class Demo4 {
      * 4.2  每个节点后 复制一个与之相同的节点 / 遍历改变复制节点的连接关系
      */
     private static Node copyRandomList02(Node head) {
+        if (head == null) {
+            return head;
+        }
         Node cur = head;
         Node next = null;
         // 1 克隆节点
         while (cur != null) {
-            Node tmp = new Node(cur.val);
-//            Node tmpRand = cur.rand == null ? null : new Node(cur.next.val);
-//            tmp.rand = tmpRand;
             next = cur.next;
-            cur.next = tmp;
-            tmp.next = next;
+            cur.next = new Node(cur.val);
+            cur.next.next = next;
             cur = next;
         }
         // 2 解决克隆节点 random 指针问题
         cur = head;
-        while (cur != null) {
-            Node copyNode = cur.next;
-            copyNode.random = (cur.random == null ? null : cur.random.next);
-            cur = cur.next.next;
-        }
-        // 3 拆分节点
-        cur = head;
-        Node newHead = head.next;
+        Node copyNode = null;
         while (cur != null) {
             next = cur.next.next;
-            Node tmp = cur.next;
-            tmp.next = next == null ? null : next.next;
+            copyNode = cur.next;
+            copyNode.random = cur.random == null ? null : cur.random.next;
+            cur = next;
+        }
+        // 3 拆分节点  1 -> 1' -> 2 -> 2' -> null 保证 两个链表 的 指向 都不发生变化
+        cur = head;  // 1
+        Node newHead = head.next; // 1'
+        while (cur != null) {
+            next = cur.next.next;  // 2
+            copyNode = cur.next;  // 1'
+            cur.next = next;   // 1 -> 2  连接 1，2
+            copyNode.next = next == null ? null : next.next;
             cur = next;
 
         }
@@ -114,6 +117,9 @@ class Node {
 
     @Override
     public String toString() {
-        return val + " " + next;
+        return  "{"+val +
+                "," + next +
+                "," + random +
+                '}';
     }
 }
